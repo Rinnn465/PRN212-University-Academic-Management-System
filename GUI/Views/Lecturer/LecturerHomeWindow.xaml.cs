@@ -1,4 +1,5 @@
 using BUS.DTOs;
+using GUI.Navigation;
 using System.Windows;
 
 namespace GUI.Views.Lecturer;
@@ -9,6 +10,11 @@ public partial class LecturerHomeWindow : Window
     {
         InitializeComponent();
         WelcomeTextBlock.Text = $"Welcome, {user.FullName}";
+    }
+
+    private void LogoutButton_Click(object sender, RoutedEventArgs e)
+    {
+        WindowNavigationService.OpenLogin(this);
     }
 }
 

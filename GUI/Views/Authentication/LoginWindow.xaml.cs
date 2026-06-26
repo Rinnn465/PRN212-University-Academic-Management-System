@@ -3,10 +3,8 @@ using BUS.Services;
 using DAL;
 using DAL.Repositories;
 using GUI.Configuration;
+using GUI.Navigation;
 using GUI.ViewModels;
-using GUI.Views.Admin;
-using GUI.Views.Lecturer;
-using GUI.Views.Student;
 using System.Windows;
 using System.Windows.Input;
 
@@ -38,6 +36,11 @@ public partial class LoginWindow : Window
         }
     }
 
+    private void RegisterButton_Click(object sender, RoutedEventArgs e)
+    {
+        WindowNavigationService.OpenRegister(this);
+    }
+
     private void PasswordBox_KeyDown(object sender, KeyEventArgs e)
     {
         if (e.Key == Key.Enter)
@@ -48,16 +51,7 @@ public partial class LoginWindow : Window
 
     private void OpenHomeWindow(AuthenticatedUserDto user)
     {
-        Window homeWindow = user.Role switch
-        {
-            "Admin" => new DashboardWindow(user),
-            "Lecturer" => new LecturerHomeWindow(user),
-            "Student" => new StudentHomeWindow(user),
-            _ => throw new InvalidOperationException($"Unsupported role: {user.Role}")
-        };
-
-        homeWindow.Show();
-        Close();
+        WindowNavigationService.OpenHome(this, user);
     }
 
     protected override void OnClosed(EventArgs e)

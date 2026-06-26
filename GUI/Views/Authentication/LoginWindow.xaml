@@ -6,61 +6,40 @@
         Width="640"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize">
-    <Grid Background="#F4F6F8">
-        <Border Width="360"
-                Padding="28"
-                Background="White"
-                BorderBrush="#D9E0E7"
-                BorderThickness="1"
-                CornerRadius="6"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center">
+    <Grid Background="{StaticResource AppBackgroundBrush}">
+        <Border Style="{StaticResource AuthPanelStyle}"
+                Width="360">
             <StackPanel>
                 <TextBlock Text="Academic Management"
-                           FontSize="24"
-                           FontWeight="SemiBold"
-                           Foreground="#1F2933"
-                           Margin="0,0,0,6" />
+                           Style="{StaticResource AuthTitleTextStyle}" />
                 <TextBlock Text="Login"
-                           FontSize="15"
-                           Foreground="#697586"
-                           Margin="0,0,0,24" />
+                           Style="{StaticResource AuthSubtitleTextStyle}" />
 
                 <TextBlock Text="Username"
-                           FontWeight="SemiBold"
-                           Foreground="#344054"
-                           Margin="0,0,0,6" />
+                           Style="{StaticResource FieldLabelTextStyle}" />
                 <TextBox x:Name="UsernameTextBox"
                          Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"
-                         Height="36"
-                         Padding="10,7"
-                         Margin="0,0,0,14" />
+                         Style="{StaticResource FormTextBoxStyle}" />
 
                 <TextBlock Text="Password"
-                           FontWeight="SemiBold"
-                           Foreground="#344054"
-                           Margin="0,0,0,6" />
+                           Style="{StaticResource FieldLabelTextStyle}" />
                 <PasswordBox x:Name="PasswordBox"
-                             Height="36"
-                             Padding="10,7"
-                             Margin="0,0,0,18"
+                             Style="{StaticResource FormPasswordBoxStyle}"
                              KeyDown="PasswordBox_KeyDown" />
 
                 <Button Content="Login"
-                        Height="38"
-                        Background="#2563EB"
-                        Foreground="White"
-                        FontWeight="SemiBold"
-                        BorderThickness="0"
+                        Style="{StaticResource PrimaryButtonStyle}"
                         Click="LoginButton_Click" />
 
+                <Button Content="Create student account"
+                        Style="{StaticResource SecondaryButtonStyle}"
+                        Click="RegisterButton_Click" />
+
                 <TextBlock Text="{Binding Message}"
-                           Foreground="#C0392B"
-                           TextWrapping="Wrap"
-                           Margin="0,14,0,0" />
+                           Style="{StaticResource ErrorTextStyle}" />
 
                 <TextBlock Text="Demo accounts: admin / SE195001 / ThinhDP2 - password 12345"
-                           Foreground="#697586"
+                           Foreground="{StaticResource MutedTextBrush}"
                            FontSize="12"
                            TextWrapping="Wrap"
                            Margin="0,22,0,0" />

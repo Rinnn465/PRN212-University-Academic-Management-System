@@ -2,7 +2,7 @@
 
 ## Overview
 
-Student Management System (SMS) is a desktop application developed using WPF (.NET 8) and SQL Server. The system helps educational institutions manage students, lecturers, subjects, enrollments, grades, and user accounts through a role-based access control mechanism.
+Student Management System is a desktop application developed using WPF (.NET 8) and SQL Server. The system helps educational institutions manage students, lecturers, subjects, enrollments, grades, and user accounts through a role-based access control mechanism.
 
 This project is developed as a course project for PRN212.
 
@@ -289,16 +289,16 @@ Administrators can:
 
 StudentManagementSystem
 
-├── SMS.Data
+├── DAL
 │   ├── Entities
 │   ├── Repositories
 │   └── AppDbContext
 │
-├── SMS.Business
+├── BUS
 │   ├── Services
 │   └── Interfaces
 │
-├── SMS.WPF
+├── GUI
 │   ├── Views
 │   ├── ViewModels
 │   ├── Commands

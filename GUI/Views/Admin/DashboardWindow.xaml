@@ -2,19 +2,108 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Admin Dashboard"
-        Height="480"
-        Width="800"
+        Height="620"
+        Width="980"
         WindowStartupLocation="CenterScreen">
-    <Grid Margin="24">
-        <StackPanel>
-            <TextBlock Text="Admin Dashboard"
-                       FontSize="26"
-                       FontWeight="SemiBold"
-                       Margin="0,0,0,8" />
-            <TextBlock x:Name="WelcomeTextBlock"
-                       FontSize="15"
-                       Foreground="#52616B" />
-        </StackPanel>
+    <Grid Background="{StaticResource AppBackgroundBrush}"
+          Margin="24">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <DockPanel Grid.Row="0"
+                   Margin="0,0,0,22">
+            <Button Content="Logout"
+                    Style="{StaticResource DangerButtonStyle}"
+                    DockPanel.Dock="Right"
+                    Click="LogoutButton_Click" />
+            <StackPanel>
+                <TextBlock Text="Admin Dashboard"
+                           Style="{StaticResource PageTitleTextStyle}" />
+                <TextBlock x:Name="WelcomeTextBlock"
+                           FontSize="15"
+                           Foreground="{StaticResource MutedTextBrush}"
+                           Margin="0,6,0,0" />
+            </StackPanel>
+        </DockPanel>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="230" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.Column="0"
+                    Style="{StaticResource CardBorderStyle}"
+                    Margin="0,0,18,0">
+                <StackPanel>
+                    <TextBlock Text="Management"
+                               FontSize="16"
+                               FontWeight="SemiBold"
+                               Margin="0,0,0,14" />
+                    <Button Content="Students"
+                            Style="{StaticResource MenuButtonStyle}" />
+                    <Button Content="Lecturers"
+                            Style="{StaticResource MenuButtonStyle}" />
+                    <Button Content="Subjects"
+                            Style="{StaticResource MenuButtonStyle}" />
+                    <Button Content="Classes"
+                            Style="{StaticResource MenuButtonStyle}" />
+                    <Button Content="Users"
+                            Style="{StaticResource MenuButtonStyle}" />
+                </StackPanel>
+            </Border>
+
+            <StackPanel Grid.Column="1">
+                <UniformGrid Columns="5"
+                             Margin="0,0,0,18">
+                    <Border Style="{StaticResource CardBorderStyle}">
+                        <StackPanel>
+                            <TextBlock Text="Students" Foreground="{StaticResource MutedTextBrush}" />
+                            <TextBlock x:Name="TotalStudentsTextBlock" FontSize="24" FontWeight="SemiBold" />
+                        </StackPanel>
+                    </Border>
+                    <Border Style="{StaticResource CardBorderStyle}">
+                        <StackPanel>
+                            <TextBlock Text="Lecturers" Foreground="{StaticResource MutedTextBrush}" />
+                            <TextBlock x:Name="TotalLecturersTextBlock" FontSize="24" FontWeight="SemiBold" />
+                        </StackPanel>
+                    </Border>
+                    <Border Style="{StaticResource CardBorderStyle}">
+                        <StackPanel>
+                            <TextBlock Text="Classes" Foreground="{StaticResource MutedTextBrush}" />
+                            <TextBlock x:Name="TotalClassesTextBlock" FontSize="24" FontWeight="SemiBold" />
+                        </StackPanel>
+                    </Border>
+                    <Border Style="{StaticResource CardBorderStyle}">
+                        <StackPanel>
+                            <TextBlock Text="Subjects" Foreground="{StaticResource MutedTextBrush}" />
+                            <TextBlock x:Name="TotalSubjectsTextBlock" FontSize="24" FontWeight="SemiBold" />
+                        </StackPanel>
+                    </Border>
+                    <Border Style="{StaticResource CardBorderStyle}">
+                        <StackPanel>
+                            <TextBlock Text="Average GPA" Foreground="{StaticResource MutedTextBrush}" />
+                            <TextBlock x:Name="AverageGpaTextBlock" FontSize="24" FontWeight="SemiBold" />
+                        </StackPanel>
+                    </Border>
+                </UniformGrid>
+
+                <Border Style="{StaticResource CardBorderStyle}"
+                        Margin="0">
+                    <StackPanel>
+                        <TextBlock Text="Ready for Admin Phase"
+                                   FontSize="18"
+                                   FontWeight="SemiBold"
+                                   Margin="0,0,0,8" />
+                        <TextBlock Text="The dashboard is connected to the business layer. CRUD screens will be added in Phase 4."
+                                   Foreground="{StaticResource MutedTextBrush}"
+                                   TextWrapping="Wrap" />
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>
 
