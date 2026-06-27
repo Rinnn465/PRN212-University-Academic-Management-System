@@ -1,0 +1,22 @@
+﻿<Window x:Class="GUI.Views.Student.GradeViewWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI.Views.Student"
+        mc:Ignorable="d"
+        Title="Grade View" Height="450" Width="650" WindowStartupLocation="CenterScreen">
+    <Grid Margin="20">
+        <DataGrid x:Name="dgGrades" AutoGenerateColumns="False" IsReadOnly="True" HeadersVisibility="Column">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Subject Code" Binding="{Binding Subject.SubjectCode}" Width="100"/>
+                <DataGridTextColumn Header="Subject Name" Binding="{Binding Subject.SubjectName}" Width="*"/>
+                <DataGridTextColumn Header="Semester" Binding="{Binding Semester}" Width="80"/>
+
+                <DataGridTextColumn Header="Assignment Score" Binding="{Binding Grades[0].AssignmentScore}" Width="120"/>
+                <DataGridTextColumn Header="Final Score" Binding="{Binding Grades[0].FinalScore}" Width="100"/>
+                <DataGridTextColumn Header="GPA" Binding="{Binding Grades[0].GPA}" Width="80"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

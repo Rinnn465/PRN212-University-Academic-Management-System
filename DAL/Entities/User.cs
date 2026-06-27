@@ -1,0 +1,15 @@
+namespace DAL.Entities;
+
+public class User
+{
+    public int UserId { get; set; }
+    public string Username { get; set; } = string.Empty;
+    public string Password { get; set; } = string.Empty;
+    public string FullName { get; set; } = string.Empty;
+    public string Role { get; set; } = string.Empty;
+    public string Status { get; set; } = string.Empty;
+    public int? StudentId { get; set; }
+    public int? LecturerId { get; set; }
+    public Student? Student { get; set; }
+    public Lecturer? Lecturer { get; set; }
+}
