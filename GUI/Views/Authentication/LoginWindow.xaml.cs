@@ -52,15 +52,15 @@ public partial class LoginWindow : Window
         {
             try
             {
-                Window homeWindow = user.Role switch
-                {
-                    "Admin" => new DashboardWindow(user),
-                    "Lecturer" => new LecturerHomeWindow(user),
+        Window homeWindow = user.Role switch
+        {
+            "Admin" => new DashboardWindow(user),
+            "Lecturer" => new LecturerHomeWindow(user),
                     "Student" => new StudentHomeWindow(user, _unitOfWork),
-                    _ => throw new InvalidOperationException($"Unsupported role: {user.Role}")
-                };
+            _ => throw new InvalidOperationException($"Unsupported role: {user.Role}")
+        };
 
-                homeWindow.Show();
+        homeWindow.Show();
 
                 Application.Current.MainWindow = homeWindow;
                 this.Close();
